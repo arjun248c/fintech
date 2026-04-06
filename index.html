@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<!--
+  This line tells the browser: "This is a modern HTML5 document."
+  Always put this at the very top of your HTML file.
+-->
+<html lang="en">
+<!--
+  <html> is the root element — everything goes inside it.
+  lang="en" tells search engines and screen readers this page is in English.
+-->
+
+<head>
+  <!--
+    The <head> section is INVISIBLE to users.
+    It contains setup info: page title, fonts, CSS links, etc.
+  -->
+
+  <!-- These meta tags help browsers display the page correctly -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- This text appears on the browser tab -->
+  <title>Fintech — Modern Digital Payments</title>
+
+  <!-- Meta description for SEO (search engines read this) -->
+  <meta name="description" content="Fintech — The future of digital payments. Send, receive, and manage your money with zero friction.">
+
+  <!-- Link to Google Fonts — we're using "Inter", a clean modern font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Link to our CSS file (we'll create this in Step 3) -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <!--
+    The <body> is everything the user SEES on the page.
+    We divide it into SECTIONS — each section is a part of the page.
+  -->
+
+  <!-- NAVIGATION BAR — The top menu bar -->
+  <!--
+    The nav is "fixed" — it stays at the top even when you scroll.
+    Inside it we have 3 parts:
+    1. Logo (left)
+    2. Navigation links (center)
+    3. CTA button (right)
+  -->
+  <nav id="navbar" class="navbar">
+    <div class="container navbar-container">
+
+      <!-- LOGO -->
+      <a href="#" class="navbar-logo">
+        <!--
+          The logo is just text styled with CSS.
+          The <span> wraps "Fin" so we can color it differently.
+        -->
+        <div class="logo-icon">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+            <rect width="32" height="32" rx="8" fill="url(#logo-gradient)"/>
+            <path d="M10 22V10h8v3h-5v2h4v3h-4v4h-3z" fill="white"/>
+            <defs>
+              <linearGradient id="logo-gradient" x1="0" y1="0" x2="32" y2="32">
+                <stop stop-color="#7c3aed"/>
+                <stop offset="1" stop-color="#06b6d4"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <span class="logo-text">Fintech</span>
+      </a>
+
+      <!-- NAVIGATION LINKS -->
+      <!--
+        Each link has href="#sectionId" which scrolls to that section.
+        This is called an "anchor link" or "hash link".
+      -->
+      <ul class="navbar-links" id="navbar-links">
+        <li><a href="#features">Features</a></li>
+        <li><a href="#stats">About</a></li>
+        <li><a href="#how-it-works">How It Works</a></li>
+        <li><a href="#testimonials">Reviews</a></li>
+        <li><a href="#cta">Pricing</a></li>
+      </ul>
+
+      <!-- CTA BUTTON (Call To Action) -->
+      <a href="#cta" class="btn btn-primary navbar-cta">Join Waitlist</a>
+
+      <!-- HAMBURGER MENU (visible only on mobile) -->
+      <!--
+        On small screens, the nav links hide and this button appears.
+        Clicking it opens/closes the mobile menu.
+        The 3 <span> elements are the 3 horizontal lines of the hamburger icon.
+      -->
+      <button class="navbar-toggle" id="navbar-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+    </div>
+  </nav>
+
+  <!-- HERO SECTION — The big first impression area -->
+  <!--
+    The hero has:
+    1. Background decorations (glowing orbs) — just for looks
+    2. Text content (headline, subtitle, buttons) — on the left
+    3. A floating card mockup — on the right
+  -->
+  <section id="hero" class="hero">
+    <!-- Decorative glowing orbs (background eye candy) -->
+    <div class="hero-bg">
+      <div class="hero-orb hero-orb-1"></div>
+      <div class="hero-orb hero-orb-2"></div>
+      <div class="hero-orb hero-orb-3"></div>
+    </div>
+
+    <div class="container hero-container">
+      <!-- LEFT SIDE: Text content -->
+      <div class="hero-content">
+        <!-- Small label above the headline -->
+        <div class="hero-badge">
+          <span class="badge-dot"></span>
+          Future of Finance
+        </div>
+
+        <!-- Main headline — the first thing people read -->
+        <h1 class="hero-title">
+          Banking Made
+          <span class="gradient-text">Effortless</span>
+          For Everyone
+        </h1>
+
+        <!-- Subtitle — explains what the product does -->
+        <p class="hero-subtitle">
+          Send, receive, and manage your money with zero friction.
+          Experience lightning-fast transactions with military-grade security.
+        </p>
+
+        <!-- Action buttons -->
+        <div class="hero-buttons">
+          <a href="#cta" class="btn btn-primary">
+            Join the Waitlist
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+              <path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="2" fill="none"/>
+            </svg>
+          </a>
+          <a href="#how-it-works" class="btn btn-secondary">
+            See How It Works
+          </a>
+        </div>
+
+        <!-- Trust indicators -->
+        <div class="hero-trust">
+          <div class="trust-avatars">
+            <div class="trust-avatar" style="background: #7c3aed;">A</div>
+            <div class="trust-avatar" style="background: #06b6d4;">S</div>
+            <div class="trust-avatar" style="background: #a78bfa;">R</div>
+            <div class="trust-avatar" style="background: #22d3ee;">M</div>
+          </div>
+          <p class="trust-text">
+            <strong>2,400+</strong> people joined this week
+          </p>
+        </div>
+      </div>
+
+      <!-- RIGHT SIDE: Floating card mockup -->
+      <div class="hero-visual">
+        <div class="hero-card">
+          <div class="card-header">
+            <span class="card-chip"></span>
+            <svg width="40" height="28" viewBox="0 0 40 28" fill="none">
+              <circle cx="14" cy="14" r="14" fill="rgba(255,255,255,0.3)"/>
+              <circle cx="26" cy="14" r="14" fill="rgba(255,255,255,0.2)"/>
+            </svg>
+          </div>
+          <div class="card-number">•••• •••• •••• 4289</div>
+          <div class="card-footer">
+            <div>
+              <span class="card-label">Card Holder</span>
+              <span class="card-value">Arjun chavan</span>
+            </div>
+            
+            <div>
+              <span class="card-label">Expires</span>
+              <span class="card-value">09/28</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Small floating info cards around the main card -->
+        <div class="hero-float-card float-card-1">
+          <span class="float-icon">↑</span>
+          <div>
+            <span class="float-label">Income</span>
+            <span class="float-value">+₹24,500</span>
+          </div>
+        </div>
+
+        <div class="hero-float-card float-card-2">
+          <span class="float-icon">⚡</span>
+          <div>
+            <span class="float-label">Transfer</span>
+            <span class="float-value">Instant</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES SECTION — What makes the product great -->
+  <section id="features" class="section">
+    <div class="container">
+      <!-- Section Header -->
+      <div class="section-header animate-on-scroll">
+        <h2>Everything you need for <span class="gradient-text">modern finance</span></h2>
+        <p>We've stripped away all the complexity to give you a clean, lightning-fast platform that just works.</p>
+      </div>
+
+      <!-- Features Grid — CSS Grid will arrange these in columns automatically -->
+      <div class="features-grid">
+        
+        <!-- Feature 1 -->
+        <div class="feature-card animate-on-scroll">
+          <div class="feature-icon">
+            <!-- SVG Icon for Global Transfers -->
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="url(#feature-grad)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="2" y1="12" x2="22" y2="12"></line>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+              <defs>
+                <linearGradient id="feature-grad" x1="0" y1="0" x2="24" y2="24">
+                  <stop stop-color="#7c3aed" />
+                  <stop offset="1" stop-color="#06b6d4" />
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+          <h3>Global Transfers</h3>
+          <p>Send money to 140+ countries in 50 currencies instantly with the real exchange rate.</p>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="feature-card animate-on-scroll">
+          <div class="feature-icon">
+            <!-- SVG Icon for Zero Fees -->
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="url(#feature-grad)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="1" x2="12" y2="23"></line>
+              <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+            </svg>
+          </div>
+          <h3>Zero Hidden Fees</h3>
+          <p>What you see is what you pay. We don't hide margin in our exchange rates.</p>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="feature-card animate-on-scroll">
+          <div class="feature-icon">
+            <!-- SVG Icon for Security -->
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="url(#feature-grad)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            </svg>
+          </div>
+          <h3>Bank-Level Security</h3>
+          <p>Your money is safeguarded with regulated banks and protected by 256-bit encryption.</p>
+        </div>
+
+        <!-- Feature 4 -->
+        <div class="feature-card animate-on-scroll">
+          <div class="feature-icon">
+            <!-- SVG Icon for Analytics -->
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="url(#feature-grad)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="20" x2="18" y2="10"></line>
+              <line x1="12" y1="20" x2="12" y2="4"></line>
+              <line x1="6" y1="20" x2="6" y2="14"></line>
+            </svg>
+          </div>
+          <h3>Smart Analytics</h3>
+          <p>Track your spending with automated categorized insights and real-time notifications.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- STATISTICS — Numbers that build trust -->
+  <!-- 
+    This section uses a dark background with a gradient overlay.
+    Numbers build trust and show scale.
+  -->
+  <section id="stats" class="section stats-section">
+    <div class="container">
+      <div class="stats-grid">
+        
+        <div class="stat-item animate-on-scroll">
+          <h3 class="stat-number gradient-text">2M+</h3>
+          <p class="stat-label">Active Users</p>
+        </div>
+
+        <div class="stat-item animate-on-scroll" style="transition-delay: 100ms;">
+          <h3 class="stat-number gradient-text">140+</h3>
+          <p class="stat-label">Countries Supported</p>
+        </div>
+
+        <div class="stat-item animate-on-scroll" style="transition-delay: 200ms;">
+          <h3 class="stat-number gradient-text">$5B+</h3>
+          <p class="stat-label">Monthly Volume</p>
+        </div>
+
+        <div class="stat-item animate-on-scroll" style="transition-delay: 300ms;">
+          <h3 class="stat-number gradient-text">99.9%</h3>
+          <p class="stat-label">Uptime SLA</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS — Step-by-step guide -->
+  <section id="how-it-works" class="section">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <h2>Get matched in <span class="gradient-text">three simple steps</span></h2>
+        <p>We simplify the loan discovery and application process for Indian MSMEs.</p>
+      </div>
+
+      <div class="steps-container">
+        
+        <!-- Step 1 -->
+        <div class="step-item animate-on-scroll">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h3>Tell us about your business</h3>
+            <p>Share basic details like your loan amount, business vintage, and annual turnover.</p>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="step-item animate-on-scroll">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h3>Get matched</h3>
+            <p>Our algorithm finds potential loan offers from our growing network of banks and NBFCs.</p>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="step-item animate-on-scroll">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h3>Apply & get disbursed</h3>
+            <p>Choose the best offer. We connect you with the lender and the loan disbursal process begins.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BANNER & FOOTER (Step 10) -->
+  <section id="cta" class="section">
+    <div class="container">
+      <div class="cta-banner animate-on-scroll">
+        <h2>Join the Waitlist</h2>
+        <p>Free. No impact on credit score.</p>
+        <div class="cta-form">
+          <input type="email" placeholder="Enter your email address" class="cta-input">
+          <button class="btn btn-primary">Join Now</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer id="footer" class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        
+        <!-- Brand Column -->
+        <div class="footer-brand">
+          <a href="#" class="navbar-logo">
+            <div class="logo-icon" style="width:24px;height:24px;">
+              <svg width="24" height="24" viewBox="0 0 32 32" fill="none">
+                <rect width="32" height="32" rx="8" fill="url(#logo-gradient)"/>
+                <path d="M10 22V10h8v3h-5v2h4v3h-4v4h-3z" fill="white"/>
+              </svg>
+            </div>
+            <span class="logo-text">Fintech</span>
+          </a>
+          <p>The modern digital banking alternative that works for you, not against you.</p>
+        </div>
+
+        <!-- Links Columns -->
+        <div class="footer-links">
+          <h4>Product</h4>
+          <ul>
+            <li><a href="#">Personal</a></li>
+            <li><a href="#">Business</a></li>
+            <li><a href="#">Pricing</a></li>
+            <li><a href="#">Card</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Press</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Cookie Policy</a></li>
+            <li><a href="#">Licenses</a></li>
+          </ul>
+        </div>
+
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2026 Fintech Inc. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Link to our JavaScript file (we'll create this in Step 11) -->
+  <script src="script.js"></script>
+</body>
+
+</html>

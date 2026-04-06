@@ -1,0 +1,1036 @@
+/*
+  ========================================
+  DESIGN SYSTEM — The foundation of our site's look
+  ========================================
+
+  Think of this as a "paint palette" for the entire website.
+  We define ALL our colors, sizes, and fonts here as VARIABLES.
+  Then we use these variables everywhere else.
+
+  WHY? If you want to change the brand color later,
+  you change it in ONE place and the ENTIRE site updates!
+*/
+
+/* ---------- CSS VARIABLES ---------- */
+/*
+  :root means "the entire page".
+  Variables start with -- (two dashes).
+  Usage: color: var(--primary);
+*/
+:root {
+  /* === COLORS === */
+  /* Main brand colors — purple-blue gradient feel */
+  --primary: #7c3aed;           /* Vibrant purple */
+  --primary-light: #a78bfa;     /* Lighter purple */
+  --primary-dark: #5b21b6;      /* Darker purple */
+  --accent: #06b6d4;            /* Cyan/teal accent */
+  --accent-light: #22d3ee;      /* Light cyan */
+
+  /* Background colors — dark theme */
+  --bg-primary: #0a0a0f;        /* Almost black — main background */
+  --bg-secondary: #12121a;      /* Slightly lighter — for cards/sections */
+  --bg-tertiary: #1a1a2e;       /* Even lighter — for hover states */
+
+  /* Text colors */
+  --text-primary: #ffffff;       /* White — for headings */
+  --text-secondary: #a0a0b8;    /* Muted gray — for body text */
+  --text-muted: #6b6b80;        /* Very muted — for less important text */
+
+  /* Glassmorphism (frosted glass effect) */
+  --glass-bg: rgba(255, 255, 255, 0.05);       /* Nearly transparent white */
+  --glass-border: rgba(255, 255, 255, 0.1);     /* Subtle white border */
+  --glass-hover: rgba(255, 255, 255, 0.08);     /* Slightly more visible on hover */
+
+  /* Gradients — smooth color transitions */
+  --gradient-primary: linear-gradient(135deg, #7c3aed, #06b6d4);
+  --gradient-hero: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #0a0a0f 100%);
+  --gradient-card: linear-gradient(135deg, rgba(124, 58, 237, 0.1), rgba(6, 182, 212, 0.1));
+  --gradient-text: linear-gradient(135deg, #7c3aed, #06b6d4, #a78bfa);
+
+  /* === SPACING === */
+  --space-xs: 0.25rem;    /* 4px  — tiny gaps */
+  --space-sm: 0.5rem;     /* 8px  — small gaps */
+  --space-md: 1rem;       /* 16px — default gap */
+  --space-lg: 1.5rem;     /* 24px — between components */
+  --space-xl: 2rem;       /* 32px — between sections */
+  --space-2xl: 3rem;      /* 48px — major sections */
+  --space-3xl: 4rem;      /* 64px — big section padding */
+  --space-4xl: 6rem;      /* 96px — hero-level spacing */
+
+  /* === TYPOGRAPHY === */
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-size-sm: 0.875rem;    /* 14px */
+  --font-size-base: 1rem;      /* 16px */
+  --font-size-lg: 1.125rem;    /* 18px */
+  --font-size-xl: 1.25rem;     /* 20px */
+  --font-size-2xl: 1.5rem;     /* 24px */
+  --font-size-3xl: 2rem;       /* 32px */
+  --font-size-4xl: 2.5rem;     /* 40px */
+  --font-size-5xl: 3.5rem;     /* 56px */
+  --font-size-6xl: 4.5rem;     /* 72px */
+
+  /* === BORDERS & RADIUS === */
+  --radius-sm: 0.5rem;    /* 8px  — subtle rounding */
+  --radius-md: 0.75rem;   /* 12px — cards */
+  --radius-lg: 1rem;      /* 16px — bigger cards */
+  --radius-xl: 1.5rem;    /* 24px — large elements */
+  --radius-full: 9999px;  /* Fully round — pills, avatars */
+
+  /* === SHADOWS === */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
+  --shadow-glow: 0 0 30px rgba(124, 58, 237, 0.3);  /* Purple glow effect */
+
+  /* === TRANSITIONS === */
+  --transition-fast: 0.2s ease;
+  --transition-base: 0.3s ease;
+  --transition-slow: 0.5s ease;
+}
+
+
+/* ---------- CSS RESET ---------- */
+/*
+  Browsers add their own default styles (margins, paddings, etc.).
+  This "reset" removes them so every browser looks the same.
+  Think of it as cleaning a canvas before painting.
+*/
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /*
+    box-sizing: border-box means:
+    If you set width: 100px, it INCLUDES padding and border.
+    Without this, a 100px box + 10px padding = 120px total. Confusing!
+  */
+}
+
+/* Smooth scrolling when clicking nav links */
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg-primary);
+  color: var(--text-secondary);
+  line-height: 1.6;           /* Space between lines of text — 1.6 is very readable */
+  overflow-x: hidden;          /* Prevent horizontal scroll */
+  -webkit-font-smoothing: antialiased;  /* Makes fonts look crisp on Mac */
+}
+
+
+/* ---------- BASE TYPOGRAPHY ---------- */
+/*
+  Set default styles for headings and paragraphs.
+  Headings go from h1 (biggest) to h6 (smallest).
+*/
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-primary);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+h1 { font-size: var(--font-size-6xl); }
+h2 { font-size: var(--font-size-4xl); }
+h3 { font-size: var(--font-size-2xl); }
+h4 { font-size: var(--font-size-xl); }
+
+p {
+  color: var(--text-secondary);
+  font-size: var(--font-size-lg);
+  line-height: 1.7;
+}
+
+a {
+  text-decoration: none;       /* Remove underline from links */
+  color: inherit;              /* Links use their parent's color */
+  transition: var(--transition-base);
+}
+
+img {
+  max-width: 100%;            /* Images never overflow their container */
+  display: block;
+}
+
+/* Remove default list bullet points */
+ul, ol {
+  list-style: none;
+}
+
+
+/* ---------- UTILITY CLASSES ---------- */
+/*
+  Reusable classes you can add to ANY element.
+  Example: <div class="container"> centers content on the page.
+*/
+
+/* Centers content with a max width — prevents text from stretching too wide on big screens */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;             /* auto left/right margin = centered */
+  padding: 0 var(--space-lg);
+}
+
+/* Standard section padding */
+.section {
+  padding: var(--space-4xl) 0;
+}
+
+/* Section header — centered title + subtitle */
+.section-header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto var(--space-3xl) auto;
+}
+
+.section-header h2 {
+  margin-bottom: var(--space-md);
+}
+
+.section-header p {
+  color: var(--text-muted);
+  font-size: var(--font-size-lg);
+}
+
+/* Gradient text — makes text look colorful */
+.gradient-text {
+  background: var(--gradient-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ---------- BUTTON STYLES ---------- */
+/*
+  Two button styles:
+  1. .btn-primary — filled with gradient (main action)
+  2. .btn-secondary — transparent with border (secondary action)
+*/
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: 0.875rem 2rem;
+  border-radius: var(--radius-full);
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition-base);
+  border: none;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background: var(--gradient-primary);
+  color: var(--text-primary);
+  box-shadow: 0 4px 20px rgba(124, 58, 237, 0.4);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);     /* Lift up slightly on hover */
+  box-shadow: 0 6px 30px rgba(124, 58, 237, 0.6);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--text-primary);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(10px);
+}
+
+.btn-secondary:hover {
+  background: var(--glass-hover);
+  border-color: var(--primary-light);
+  transform: translateY(-2px);
+}
+
+
+/* ---------- ANIMATIONS (Keyframes) ---------- */
+/*
+  @keyframes define animations.
+  They describe how an element should change over time.
+  "from" = start state, "to" = end state.
+  You can also use percentages: 0%, 50%, 100%.
+*/
+
+/* Fade in from below — used when elements scroll into view */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;               /* Invisible */
+    transform: translateY(30px);  /* 30px below final position */
+  }
+  to {
+    opacity: 1;               /* Fully visible */
+    transform: translateY(0);     /* At final position */
+  }
+}
+
+/* Gentle floating up and down — for decorative elements */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+/* Subtle pulsing glow */
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+/* Slow rotation — for background decorations */
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Class to trigger fade-in animation when element is visible */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.animate-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* ==========================================
+   STEP 4: NAVIGATION BAR
+   ==========================================
+   position: fixed = stays at top while scrolling
+   backdrop-filter: blur = frosted glass effect
+   z-index: 1000 = always on top of other elements
+*/
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;                    /* Always on top */
+  padding: var(--space-md) 0;
+  transition: var(--transition-base);
+  background: transparent;
+}
+
+/* When user scrolls down, navbar gets a solid background */
+.navbar.scrolled {
+  background: rgba(10, 10, 15, 0.9);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--glass-border);
+  padding: var(--space-sm) 0;
+}
+
+/* Flexbox layout: logo | links | button spread across the bar */
+.navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;   /* Push items to edges */
+}
+
+/* Logo: icon + text side by side */
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: var(--font-size-xl);
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.navbar-logo:hover {
+  opacity: 0.9;
+}
+
+.logo-text {
+  background: var(--gradient-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Nav links: horizontal list */
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xl);
+}
+
+.navbar-links a {
+  color: var(--text-secondary);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  position: relative;
+  padding: var(--space-xs) 0;
+}
+
+/* Animated underline on hover */
+.navbar-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--gradient-primary);
+  transition: var(--transition-base);
+  border-radius: var(--radius-full);
+}
+
+.navbar-links a:hover {
+  color: var(--text-primary);
+}
+
+.navbar-links a:hover::after {
+  width: 100%;                     /* Underline expands on hover */
+}
+
+/* CTA button in navbar — smaller than default */
+.navbar-cta {
+  padding: 0.625rem 1.5rem;
+  font-size: var(--font-size-sm);
+}
+
+/* Hamburger menu button (hidden on desktop) */
+.navbar-toggle {
+  display: none;                   /* Hidden on desktop */
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--space-xs);
+}
+
+.navbar-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--text-primary);
+  border-radius: var(--radius-full);
+  transition: var(--transition-base);
+}
+
+
+/* ==========================================
+   STEP 5: HERO SECTION
+   ==========================================
+   This is the biggest, most important section.
+   We use a 2-column grid layout on desktop.
+*/
+
+.hero {
+  position: relative;
+  padding: calc(var(--space-4xl) + 80px) 0 var(--space-4xl) 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;                 /* Contain the background orbs */
+}
+
+/* Background animated glowing orbs */
+.hero-bg {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: -1;                      /* Keep behind content */
+  overflow: hidden;
+}
+
+.hero-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);               /* Make them look like soft glowing clouds */
+  opacity: 0.5;
+  animation: pulse 8s infinite alternate;
+}
+
+.hero-orb-1 {
+  top: -10%; left: -10%;
+  width: 500px; height: 500px;
+  background: rgba(124, 58, 237, 0.3);
+}
+
+.hero-orb-2 {
+  bottom: -10%; right: -10%;
+  width: 600px; height: 600px;
+  background: rgba(6, 182, 212, 0.2);
+  animation-delay: 2s;
+}
+
+.hero-orb-3 {
+  top: 40%; left: 50%;
+  width: 400px; height: 400px;
+  background: rgba(167, 139, 250, 0.2);
+  animation-delay: 4s;
+}
+
+/* 2-column grid layout */
+.hero-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;   /* Two equal columns */
+  gap: var(--space-4xl);
+  align-items: center;
+}
+
+/* Left side text */
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  position: relative;
+  z-index: 2;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-sm);
+  color: var(--text-primary);
+  width: fit-content;
+}
+
+/* A small glowing dot inside the badge */
+.badge-dot {
+  width: 8px; height: 8px;
+  background: var(--accent);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--accent);
+}
+
+.hero-title {
+  font-size: clamp(2.5rem, 5vw, 4.5rem); /* Scales with screen size */
+  letter-spacing: -0.02em;
+}
+
+.hero-subtitle {
+  font-size: var(--font-size-lg);
+  max-width: 500px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: var(--space-md);
+  margin-top: var(--space-sm);
+}
+
+/* Trust section below buttons */
+.hero-trust {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  margin-top: var(--space-md);
+}
+
+.trust-avatars {
+  display: flex;
+}
+
+.trust-avatar {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  border: 2px solid var(--bg-primary);
+  margin-left: -10px;               /* Overlapping effect */
+}
+.trust-avatar:first-child { margin-left: 0; }
+
+.trust-text {
+  font-size: var(--font-size-sm);
+}
+.trust-text strong { color: var(--text-primary); }
+
+/* Right side graphics */
+.hero-visual {
+  position: relative;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* The main floating credit card */
+.hero-card {
+  width: 340px;
+  background: var(--gradient-card);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-xl);
+  box-shadow: var(--shadow-lg), inset 0 0 0 1px rgba(255,255,255,0.1);
+  color: white;
+  position: relative;
+  z-index: 2;
+  animation: float 6s ease-in-out infinite; /* Make it float up and down */
+  transform: rotate(-5deg);                 /* Start slightly tilted */
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: var(--space-xl);
+}
+
+.card-chip {
+  width: 45px; height: 32px;
+  background: linear-gradient(135deg, #ffd700, #b8860b);
+  border-radius: 6px;
+  opacity: 0.8;
+}
+
+.card-number {
+  font-family: monospace;
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+  margin-bottom: var(--space-lg);
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--font-size-sm);
+}
+
+.card-label {
+  display: block;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  opacity: 0.7;
+  margin-bottom: 4px;
+}
+
+.card-value {
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+/* Small floating info snippets around the card */
+.hero-float-card {
+  position: absolute;
+  background: rgba(26, 26, 46, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  padding: var(--space-md);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  box-shadow: var(--shadow-md);
+  z-index: 3;
+}
+
+.float-card-1 {
+  top: 10%; right: 0;
+  animation: float 5s ease-in-out infinite alternate;
+}
+
+.float-card-2 {
+  bottom: 20%; left: 0;
+  animation: float 7s ease-in-out infinite alternate-reverse;
+}
+
+.float-icon {
+  width: 40px; height: 40px;
+  background: var(--glass-bg);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: var(--accent);
+}
+
+.float-label {
+  display: block;
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+}
+
+.float-value {
+  display: block;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+
+/* ==========================================
+   STEP 6: FEATURES SECTION
+   ==========================================
+   Using CSS Grid to create a responsive layout of cards.
+*/
+
+.features-grid {
+  display: grid;
+  /* 
+    This is magic! It automatically creates columns that are AT LEAST 250px wide.
+    If the screen gets smaller, it automatically drops to fewer columns.
+    No media queries needed for basic responsiveness!
+  */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--space-xl);
+}
+
+/* Individual Feature Card */
+.feature-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  transition: var(--transition-base);
+  position: relative;
+  overflow: hidden;                 /* Keep the hover glow from spilling out */
+}
+
+/* The glowing effect on hover */
+.feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--gradient-primary);
+  opacity: 0;
+  transition: var(--transition-base);
+}
+
+.feature-card:hover {
+  transform: translateY(-10px);     /* Lift up */
+  background: var(--bg-tertiary);
+  box-shadow: var(--shadow-lg);
+}
+
+.feature-card:hover::before {
+  opacity: 1;                       /* Show top colored border */
+}
+
+/* Feature Icon container */
+.feature-icon {
+  width: 56px; height: 56px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-lg);
+  transition: var(--transition-base);
+}
+
+.feature-card:hover .feature-icon {
+  transform: scale(1.1);            /* Icon grows on card hover */
+  background: rgba(124, 58, 237, 0.1);
+  border-color: rgba(124, 58, 237, 0.3);
+}
+
+.feature-card h3 {
+  font-size: var(--font-size-xl);
+  margin-bottom: var(--space-sm);
+}
+
+.feature-card p {
+  font-size: var(--font-size-base);
+}
+
+
+/* ==========================================
+   STEP 7: STATISTICS SECTION
+   ==========================================
+   A full-width banner with key numbers.
+*/
+
+.stats-section {
+  position: relative;
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--glass-border);
+  border-bottom: 1px solid var(--glass-border);
+  overflow: hidden;
+}
+
+/* Subtle background gradient just for the stats area */
+.stats-section::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(90deg, rgba(124, 58, 237, 0.05) 0%, rgba(6, 182, 212, 0.05) 100%);
+  pointer-events: none;
+}
+
+.stats-grid {
+  display: grid;
+  /* 4 columns on desktop, will stack on smaller screens */
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--space-xl);
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.stat-item {
+  padding: var(--space-md);
+}
+
+.stat-number {
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  font-weight: 800;
+  margin-bottom: var(--space-xs);
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+
+/* ==========================================
+   STEP 8: HOW IT WORKS SECTION
+   ==========================================
+   A vertical timeline showing a step-by-step process.
+*/
+
+.steps-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.step-item {
+  display: flex;
+  gap: var(--space-xl);
+  margin-bottom: var(--space-2xl);
+  position: relative;
+}
+
+.step-item:last-child {
+  margin-bottom: 0;
+}
+
+/* The vertical connecting line between steps */
+.step-item:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 60px;               /* Start below the circle */
+  left: 24px;              /* Center of the 48px circle */
+  bottom: calc(-1 * var(--space-2xl)); /* Go down to next step */
+  width: 2px;
+  background: var(--glass-border);
+  transform: translateX(-50%);
+  z-index: 0;
+}
+
+/* The circle with the step number */
+.step-number {
+  width: 48px; height: 48px;
+  flex-shrink: 0;          /* Prevent it from shrinking if text is long */
+  border-radius: 50%;
+  background: var(--gradient-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: var(--text-primary);
+  box-shadow: 0 0 20px rgba(124, 58, 237, 0.4);
+  position: relative;
+  z-index: 1;
+}
+
+.step-content h3 {
+  margin-bottom: var(--space-sm);
+  padding-top: var(--space-sm); /* Align with center of number */
+}
+
+/* Let's make it responsive: on mobile the gap is smaller */
+@media (max-width: 768px) {
+  .step-item {
+    gap: var(--space-md);
+  }
+  .step-item:not(:last-child)::after {
+    left: 24px;
+  }
+}
+
+
+/* ==========================================
+   STEP 10: CTA BANNER & FOOTER
+   ==========================================
+   The final call to action and standard page footer.
+*/
+
+/* CTA Banner styling */
+.cta-banner {
+  background: var(--gradient-card);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-4xl) var(--space-xl);
+  text-align: center;
+  box-shadow: var(--shadow-lg);
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-banner h2 {
+  font-size: var(--font-size-3xl);
+  margin-bottom: var(--space-md);
+}
+
+.cta-banner p {
+  color: var(--text-secondary);
+  font-size: var(--font-size-lg);
+  max-width: 600px;
+  margin: 0 auto var(--space-xl) auto;
+}
+
+.cta-form {
+  display: flex;
+  gap: var(--space-sm);
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.cta-input {
+  flex-grow: 1;
+  padding: 0.875rem 1.5rem;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--glass-border);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-primary);
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  outline: none;
+  transition: var(--transition-base);
+}
+
+.cta-input:focus {
+  border-color: var(--primary-light);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 600px) {
+  .cta-form {
+    flex-direction: column;
+  }
+}
+
+
+/* Footer styling */
+.footer {
+  background: var(--bg-primary);
+  border-top: 1px solid var(--glass-border);
+  padding: var(--space-4xl) 0 var(--space-lg) 0;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: var(--space-2xl);
+  margin-bottom: var(--space-4xl);
+}
+
+@media (max-width: 768px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .footer-brand {
+    grid-column: 1 / -1; /* Span all columns */
+  }
+}
+
+.footer-brand p {
+  margin-top: var(--space-md);
+  font-size: var(--font-size-sm);
+  max-width: 300px;
+}
+
+.footer-links h4 {
+  color: var(--text-primary);
+  margin-bottom: var(--space-md);
+  font-size: var(--font-size-base);
+}
+
+.footer-links ul li {
+  margin-bottom: var(--space-sm);
+}
+
+.footer-links ul a {
+  color: var(--text-secondary);
+  font-size: var(--font-size-sm);
+}
+
+.footer-links ul a:hover {
+  color: var(--primary-light);
+  padding-left: 4px; /* Slight indent on hover */
+}
+
+.footer-bottom {
+  border-top: 1px solid var(--glass-border);
+  padding-top: var(--space-xl);
+  text-align: center;
+  font-size: var(--font-size-sm);
+  color: var(--text-muted);
+}
+
+
+/* ==========================================
+   MOBILE MENU (JS Toggled)
+   ==========================================
+   Triggered by the hamburger icon
+*/
+
+@media (max-width: 768px) {
+  .navbar-toggle {
+    display: flex;
+    z-index: 1001; /* Keep it above the mobile menu */
+  }
+
+  .navbar-links {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(10, 10, 15, 0.95);
+    backdrop-filter: blur(20px);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-2xl);
+    transform: translateY(-100%); /* Hidden by default */
+    transition: transform 0.4s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+    opacity: 0;
+  }
+
+  .navbar-links.active {
+    transform: translateY(0);    /* Slide in */
+    opacity: 1;
+  }
+
+  .navbar-links a {
+    font-size: var(--font-size-2xl);
+  }
+}
