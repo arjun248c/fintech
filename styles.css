@@ -441,6 +441,26 @@ ul, ol {
   overflow: hidden;                 /* Contain the background orbs */
 }
 
+/* Background image for hero */
+.hero-bank {
+  background-image: url('bank-bg.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Overlay to ensure text readability against the background image */
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to right, rgba(10, 10, 15, 0.9) 30%, rgba(10, 10, 15, 0.5) 100%);
+  z-index: 0;
+}
+
+
 /* Background animated glowing orbs */
 .hero-bg {
   position: absolute;
