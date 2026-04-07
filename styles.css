@@ -504,6 +504,16 @@ ul, ol {
   grid-template-columns: 1fr 1fr;   /* Two equal columns */
   gap: var(--space-4xl);
   align-items: center;
+  width: 100%;
+}
+
+@media (max-width: 992px) {
+  .hero-container {
+    grid-template-columns: 1fr; /* Stack on mobile */
+    gap: var(--space-xl);
+    text-align: center;
+    padding-top: var(--space-2xl);
+  }
 }
 
 /* Left side text */
@@ -513,6 +523,13 @@ ul, ol {
   gap: var(--space-lg);
   position: relative;
   z-index: 2;
+  width: 100%;
+}
+
+@media (max-width: 992px) {
+  .hero-content {
+    align-items: center; /* Center contents on mobile */
+  }
 }
 
 .hero-badge {
@@ -1178,5 +1195,50 @@ ul, ol {
   .audience-content {
     padding: 3rem 1.5rem;
     text-align: center;
+  }
+}
+
+/* ==========================================
+   MOBILE HERO FIXES
+   ==========================================
+*/
+
+.fis-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  padding-top: 5rem;
+  height: 100%;
+}
+
+.form-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+@media (max-width: 992px) {
+  .fis-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding-top: 6rem;
+    text-align: center;
+    /* Center align the checklist items on mobile */
+  }
+  .fis-hero-grid .hero-content {
+    align-items: center;
+    text-align: center;
+    margin: 0 auto;
+  }
+  
+  .fis-hero-grid .hero-content > div {
+    align-items: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .form-grid-2 {
+    grid-template-columns: 1fr;
   }
 }
