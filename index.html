@@ -123,91 +123,72 @@
     <div class="container hero-container">
       <!-- LEFT SIDE: Text content -->
       <div class="hero-content">
-        <!-- Small label above the headline -->
-        <div class="hero-badge">
-          <span class="badge-dot"></span>
-          Future of Finance
+        <!-- Trust badges -->
+        <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+          <div class="hero-badge">
+            <span class="badge-dot"></span>
+            Secure & Compliant
+          </div>
+          <div class="hero-badge">
+            <span class="badge-dot"></span>
+            100% Online
+          </div>
         </div>
 
-        <!-- Main headline — the first thing people read -->
+        <!-- Main headline -->
         <h1 class="hero-title">
-          Banking Made
-          <span class="gradient-text">Effortless</span>
-          For Everyone
+          Your unified
+          <span class="gradient-text">financial marketplace</span>
+          — launching soon
         </h1>
 
-        <!-- Subtitle — explains what the product does -->
+        <!-- Subtitle -->
         <p class="hero-subtitle">
-          Send, receive, and manage your money with zero friction.
-          Experience lightning-fast transactions with military-grade security.
+          Compare offers from leading banks and financial institutions. One form. Transparent offers. Zero bias.
         </p>
 
-        <!-- Action buttons -->
-        <div class="hero-buttons">
-          <a href="#cta" class="btn btn-primary">
-            Join the Waitlist
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
-              <path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="2" fill="none"/>
-            </svg>
-          </a>
-          <a href="#how-it-works" class="btn btn-secondary">
-            See How It Works
-          </a>
-        </div>
-
-        <!-- Trust indicators -->
-        <div class="hero-trust">
-          <div class="trust-avatars">
-            <div class="trust-avatar" style="background: #7c3aed;">A</div>
-            <div class="trust-avatar" style="background: #06b6d4;">S</div>
-            <div class="trust-avatar" style="background: #a78bfa;">R</div>
-            <div class="trust-avatar" style="background: #22d3ee;">M</div>
-          </div>
-          <p class="trust-text">
-            <strong>2,400+</strong> people joined this week
-          </p>
+        <!-- Bullet points (MSME-style) -->
+        <div style="display: flex; flex-direction: column; gap: 0.5rem; margin-top: 0.5rem;">
+          <div style="display: flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); font-size: 0.95rem;"><span style="color: var(--accent); font-weight: bold;">✓</span> Multiple partners, one application</div>
+          <div style="display: flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); font-size: 0.95rem;"><span style="color: var(--accent); font-weight: bold;">✓</span> Get matched in minutes</div>
+          <div style="display: flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); font-size: 0.95rem;"><span style="color: var(--accent); font-weight: bold;">✓</span> No hidden charges, transparent comparison</div>
+          <div style="display: flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); font-size: 0.95rem;"><span style="color: var(--accent); font-weight: bold;">✓</span> Guided support throughout the process</div>
         </div>
       </div>
 
-      <!-- RIGHT SIDE: Floating card mockup -->
-      <div class="hero-visual">
-        <div class="hero-card">
-          <div class="card-header">
-            <span class="card-chip"></span>
-            <svg width="40" height="28" viewBox="0 0 40 28" fill="none">
-              <circle cx="14" cy="14" r="14" fill="rgba(255,255,255,0.3)"/>
-              <circle cx="26" cy="14" r="14" fill="rgba(255,255,255,0.2)"/>
-            </svg>
-          </div>
-          <div class="card-number">•••• •••• •••• 4289</div>
-          <div class="card-footer">
-            <div>
-              <span class="card-label">Card Holder</span>
-              <span class="card-value">Arjun chavan</span>
+      <!-- RIGHT SIDE: Waitlist form (MSME-style) -->
+      <div class="hero-visual" style="height: auto;">
+        <div class="hero-form-card">
+          <h3 style="text-align: center; margin-bottom: 1.5rem; font-size: 1.5rem;">Join the Waitlist</h3>
+          <form id="waitlist-form" style="display: flex; flex-direction: column; gap: 1rem;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+              <div>
+                <label class="form-label">Full Name <span style="color: var(--accent);">*</span></label>
+                <input type="text" placeholder="Your full name" class="hero-form-input" required>
+              </div>
+              <div>
+                <label class="form-label">Email Address <span style="color: var(--accent);">*</span></label>
+                <input type="email" placeholder="your@email.com" class="hero-form-input" required>
+              </div>
+              <div>
+                <label class="form-label">Mobile Number <span style="color: var(--accent);">*</span></label>
+                <input type="tel" placeholder="10-digit mobile" class="hero-form-input" required>
+              </div>
+              <div>
+                <label class="form-label">City <span style="color: var(--accent);">*</span></label>
+                <input type="text" placeholder="Your city" class="hero-form-input" required>
+              </div>
             </div>
-            
-            <div>
-              <span class="card-label">Expires</span>
-              <span class="card-value">09/28</span>
+            <div style="display: flex; align-items: flex-start; gap: 0.5rem; font-size: 0.8rem; color: var(--text-muted);">
+              <input type="checkbox" required style="margin-top: 3px;">
+              <label>I agree to the <a href="#" style="color: var(--accent);">Privacy Policy</a> and <a href="#" style="color: var(--accent);">Terms & Conditions</a></label>
             </div>
-          </div>
-        </div>
-
-        <!-- Small floating info cards around the main card -->
-        <div class="hero-float-card float-card-1">
-          <span class="float-icon">↑</span>
-          <div>
-            <span class="float-label">Income</span>
-            <span class="float-value">+₹24,500</span>
-          </div>
-        </div>
-
-        <div class="hero-float-card float-card-2">
-          <span class="float-icon">⚡</span>
-          <div>
-            <span class="float-label">Transfer</span>
-            <span class="float-value">Instant</span>
-          </div>
+            <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; border-radius: var(--radius-md);">
+              Get Early Access
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+            </button>
+            <p style="text-align: center; font-size: 0.8rem; color: var(--text-muted); margin: 0;">Free. No impact on credit score.</p>
+          </form>
         </div>
       </div>
     </div>
@@ -218,17 +199,14 @@
     <div class="container">
       <!-- Section Header -->
       <div class="section-header animate-on-scroll">
-        <h2>Everything you need for <span class="gradient-text">modern finance</span></h2>
-        <p>We've stripped away all the complexity to give you a clean, lightning-fast platform that just works.</p>
+        <h2>Why Choose <span class="gradient-text">Fintech</span>?</h2>
+        <p>We simplify the financial discovery and application process for everyone.</p>
       </div>
 
-      <!-- Features Grid — CSS Grid will arrange these in columns automatically -->
       <div class="features-grid">
         
-        <!-- Feature 1 -->
         <div class="feature-card animate-on-scroll">
           <div class="feature-icon">
-            <!-- SVG Icon for Global Transfers -->
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="url(#feature-grad)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <circle cx="12" cy="12" r="10"></circle>
               <line x1="2" y1="12" x2="22" y2="12"></line>
@@ -241,47 +219,41 @@
               </defs>
             </svg>
           </div>
-          <h3>Global Transfers</h3>
-          <p>Send money to 140+ countries in 50 currencies instantly with the real exchange rate.</p>
+          <h3>Multiple Partners, One Place</h3>
+          <p>We bring together top banks and financial institutions so you can compare offers without visiting multiple websites.</p>
         </div>
 
-        <!-- Feature 2 -->
         <div class="feature-card animate-on-scroll">
           <div class="feature-icon">
-            <!-- SVG Icon for Zero Fees -->
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="url(#feature-grad)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <line x1="12" y1="1" x2="12" y2="23"></line>
               <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
             </svg>
           </div>
-          <h3>Zero Hidden Fees</h3>
-          <p>What you see is what you pay. We don't hide margin in our exchange rates.</p>
+          <h3>Simple Eligibility Check</h3>
+          <p>Answer a few basic questions about yourself. We'll show you which financial options you're likely to qualify for.</p>
         </div>
 
-        <!-- Feature 3 -->
         <div class="feature-card animate-on-scroll">
           <div class="feature-icon">
-            <!-- SVG Icon for Security -->
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="url(#feature-grad)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
             </svg>
           </div>
-          <h3>Bank-Level Security</h3>
-          <p>Your money is safeguarded with regulated banks and protected by 256-bit encryption.</p>
+          <h3>Compare Side-by-Side</h3>
+          <p>See interest rates, processing fees, tenure, and monthly payments – all in one clear, transparent dashboard.</p>
         </div>
 
-        <!-- Feature 4 -->
         <div class="feature-card animate-on-scroll">
           <div class="feature-icon">
-            <!-- SVG Icon for Analytics -->
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="url(#feature-grad)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <line x1="18" y1="20" x2="18" y2="10"></line>
               <line x1="12" y1="20" x2="12" y2="4"></line>
               <line x1="6" y1="20" x2="6" y2="14"></line>
             </svg>
           </div>
-          <h3>Smart Analytics</h3>
-          <p>Track your spending with automated categorized insights and real-time notifications.</p>
+          <h3>Guided Support</h3>
+          <p>From documentation to follow-ups, our team will assist you through the process. No confusion, no delays.</p>
         </div>
 
       </div>
@@ -325,8 +297,8 @@
   <section id="how-it-works" class="section">
     <div class="container">
       <div class="section-header animate-on-scroll">
-        <h2>Get matched in <span class="gradient-text">three simple steps</span></h2>
-        <p>We simplify the loan discovery and application process for Indian MSMEs.</p>
+        <h2>How It <span class="gradient-text">Works</span></h2>
+        <p>Get matched with the right financial solution in three simple steps.</p>
       </div>
 
       <div class="steps-container">
@@ -335,8 +307,8 @@
         <div class="step-item animate-on-scroll">
           <div class="step-number">1</div>
           <div class="step-content">
-            <h3>Tell us about your business</h3>
-            <p>Share basic details like your loan amount, business vintage, and annual turnover.</p>
+            <h3>Tell us about yourself</h3>
+            <p>Share basic details: your financial goals, preferences, and requirements.</p>
           </div>
         </div>
 
@@ -345,7 +317,7 @@
           <div class="step-number">2</div>
           <div class="step-content">
             <h3>Get matched</h3>
-            <p>Our algorithm finds potential loan offers from our growing network of banks and NBFCs.</p>
+            <p>Our algorithm finds potential offers from our growing network of financial partners.</p>
           </div>
         </div>
 
@@ -428,7 +400,7 @@
             </div>
             <span class="logo-text">Fintech</span>
           </a>
-          <p>The modern digital banking alternative that works for you, not against you.</p>
+          <p>Your unified financial marketplace. Compare offers from leading banks and institutions.</p>
         </div>
 
         <!-- Links Columns -->
@@ -465,6 +437,7 @@
       </div>
       
       <div class="footer-bottom">
+        <p style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 0.5rem;">Fintech is an intermediary platform. All services are subject to partner institutions' approval.</p>
         <p>&copy; 2026 Fintech Inc. All rights reserved.</p>
       </div>
     </div>

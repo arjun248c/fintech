@@ -117,4 +117,29 @@ document.addEventListener('DOMContentLoaded', () => {
     window.requestAnimationFrame(step);
   }
 
+  // --- 5. WAITLIST FORM HANDLER ---
+  const waitlistForm = document.getElementById('waitlist-form');
+  if (waitlistForm) {
+    waitlistForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const submitBtn = waitlistForm.querySelector('button[type="submit"]');
+      const originalText = submitBtn.innerHTML;
+      
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = 'Joining...';
+      
+      setTimeout(() => {
+        submitBtn.innerHTML = 'Success! ✓';
+        submitBtn.style.background = '#059669';
+        
+        setTimeout(() => {
+          submitBtn.innerHTML = originalText;
+          submitBtn.style.background = '';
+          submitBtn.disabled = false;
+          waitlistForm.reset();
+        }, 3000);
+      }, 1500);
+    });
+  }
+
 });

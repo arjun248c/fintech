@@ -1054,3 +1054,59 @@ ul, ol {
     font-size: var(--font-size-2xl);
   }
 }
+
+
+/* ==========================================
+   HERO FORM CARD (MSME-style waitlist form)
+   ==========================================
+*/
+
+.hero-form-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-xl);
+  box-shadow: var(--shadow-lg), inset 0 0 0 1px rgba(255,255,255,0.05);
+  position: relative;
+  z-index: 2;
+}
+
+.form-label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 0.35rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.hero-form-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--glass-border);
+  background: var(--glass-bg);
+  color: var(--text-primary);
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  outline: none;
+  transition: var(--transition-base);
+}
+
+.hero-form-input:focus {
+  border-color: var(--primary-light);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.15);
+}
+
+.hero-form-input::placeholder {
+  color: var(--text-muted);
+}
+
+/* Responsive: stack form fields on mobile */
+@media (max-width: 768px) {
+  .hero-form-card {
+    margin-top: var(--space-xl);
+  }
+}
