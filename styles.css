@@ -19,34 +19,34 @@
 */
 :root {
   /* === COLORS === */
-  /* Main brand colors — enterprise feel */
-  --primary: #004B87;           /* Enterprise Blue / Navy */
-  --primary-light: #0066B3;     /* Lighter Blue */
-  --primary-dark: #002855;      /* Dark Navy */
-  --accent: #FF5C35;            /* Action Orange/Coral (like Fiserv) */
-  --accent-light: #FF8566;      /* Light Orange */
+  /* Main brand colors — premium dark theme */
+  --primary: #7c3aed;           /* Purple */
+  --primary-light: #8b5cf6;     
+  --primary-dark: #6d28d9;      
+  --accent: #06b6d4;            /* Cyan */
+  --accent-light: #22d3ee;      
 
-  /* Background colors — light theme */
-  --bg-primary: #ffffff;        /* Pure white */
-  --bg-secondary: #f4f7f9;      /* Light grey for sections */
-  --bg-tertiary: #e9ecef;       /* Darker grey for hover / borders */
-  --bg-navy: #0A192F;           /* Deep navy for hero / footer */
+  /* Background colors — dark theme */
+  --bg-primary: #0A0A0A;        
+  --bg-secondary: #111111;      
+  --bg-tertiary: #1a1a1a;       
+  --bg-navy: #0A0A0A;           
 
   /* Text colors */
-  --text-primary: #111827;       /* Very dark gray for headings */
-  --text-secondary: #4b5563;     /* Gray for body text */
-  --text-muted: #6b7280;         /* Muted gray */
+  --text-primary: #ffffff;       
+  --text-secondary: #a3a3a3;     
+  --text-muted: #737373;         
 
-  /* Glassmorphism replaced with crisp borders */
-  --glass-bg: rgba(255, 255, 255, 0.95);
-  --glass-border: rgba(0, 0, 0, 0.08);
-  --glass-hover: rgba(0, 0, 0, 0.02);
+  /* Glassmorphism elements */
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-hover: rgba(255, 255, 255, 0.05);
 
-  /* Gradients — corporate style */
-  --gradient-primary: linear-gradient(135deg, #004B87, #0066B3);
-  --gradient-hero: linear-gradient(to right, rgba(10, 25, 47, 0.95) 0%, rgba(10, 25, 47, 0.7) 100%);
-  --gradient-card: #ffffff;
-  --gradient-text: #004B87;
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, #7c3aed, #06b6d4);
+  --gradient-hero: linear-gradient(to right, rgba(10, 10, 10, 0.9) 0%, rgba(10, 10, 10, 0.4) 100%);
+  --gradient-card: linear-gradient(135deg, rgba(124, 58, 237, 0.1), rgba(6, 182, 212, 0.1));
+  --gradient-text: linear-gradient(135deg, var(--primary), var(--accent));
 
   /* === SPACING === */
   --space-xs: 0.25rem;    /* 4px  — tiny gaps */
