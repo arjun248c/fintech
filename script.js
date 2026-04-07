@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const observerOptions = {
     root: null,
     rootMargin: '0px',
-    threshold: 0.1 // Trigger when 10% of the element is visible
+    threshold: 0.2 // Trigger when 20% of the element is visible (FIS enterprise staggering)
   };
 
   const observer = new IntersectionObserver((entries, observer) => {
@@ -126,10 +126,10 @@ document.addEventListener('DOMContentLoaded', () => {
       const originalText = submitBtn.innerHTML;
       
       submitBtn.disabled = true;
-      submitBtn.innerHTML = 'Joining...';
+      submitBtn.innerHTML = 'Sending...';
       
       setTimeout(() => {
-        submitBtn.innerHTML = 'Success! ✓';
+        submitBtn.innerHTML = 'Message Sent! ✓';
         submitBtn.style.background = '#059669';
         
         setTimeout(() => {
